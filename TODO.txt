@@ -1,0 +1,11 @@
+- "r" or "space" starts/stops recording
+- 10 minute limit
+- 30 recording limit
+- Looping option
+- Option to play audio files upon record
+- Merge audio files
+- Metronome flashes
+    
+- Make tests awesome
+    - https://realpython.com/blog/python/testing-in-django-part-1-best-practices-and-examples/
+    

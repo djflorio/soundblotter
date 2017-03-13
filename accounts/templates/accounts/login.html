@@ -1,0 +1,26 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="{% static 'accounts/js/main.js' %}"></script>
+<script src="{% static 'pages/js/login.js' %}"></script>
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+<div id="login-content">
+    <div id="login-container">
+        <span id="login-title">SoundBlotter</span>
+        <div id="error-container"></div>
+        <form action="" method="post" id="login-form">
+            {% csrf_token %}
+            <input type="hidden" name="next_page" value="{{ next_page }}" id="post-next">
+            {{ form.username }}<br>
+            {{ form.password }}<br>
+            <input type="submit" value="Login" id="login-button">
+        </form>
+        <p id="register-text">Or <a class="login-link" href="/accounts/register/">make an account</a>.</p>
+        <a class="login-link" href="/accounts/forgot_pass">Forgot your password?</a>
+    </div>
+</div>
+{% endblock %}
+

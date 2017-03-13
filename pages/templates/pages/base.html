@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Recording</title>
+        <meta name="description" content="The official website for Dan Florio, a musician and programmer from Norwalk, CT. Here you can listen to his music and see the various programming projects he's worked on.">
+        <link rel="stylesheet" type="text/css" href="{% static 'pages/style.css' %}">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="{% static 'pages/js/main.js' %}"></script>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600|Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    </head>
+    <body>
+        
+        {% if user is not None %}
+        <div id="user-bar">
+            <div id="user-text">
+                Hello, {{ user.username }}! |
+                <a href="/accounts/dashboard">home</a> |
+                <a href="/accounts/user_settings">settings</a> |
+                <a href="/accounts/logout">logout</a>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,15 @@
+Change password
+<br><br>
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <p class="error">{{ error|lower|capfirst|escape }}</p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.new_password1 }}<br>
+    {{ form.new_password2 }}<br>
+    <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,493 @@
+body { 
+    background-image: url('./images/gradient.png');
+    background-color: #96bf6a;
+    background-repeat: repeat-x;
+}
+
+h2, .error {
+    font-family: 'Lato', sans-serif;
+}
+
+#content {
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.error {
+    background-color: darksalmon;
+    color: firebrick;
+    margin: 0 0 5px 0;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+/******** User Bar ********/
+
+#user-bar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 30px;
+    background-color: bisque;
+    z-index: 9999;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+#user-text {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+
+#user-text a {
+    text-decoration: none;
+    color: darkred;
+}
+
+#user-text a:hover {
+    color: chocolate;
+}
+
+/******** Login/Register ********/
+
+#login-content {
+    text-align: center;
+}
+
+#login-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
+    color: rgb(140,140,140);
+}
+
+#login-container, #register-container {
+    display: inline-block;
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #FFFFFF;
+}
+
+#login-container {
+    opacity: 0;
+    margin-top: -500px;
+    width: 240px;
+}
+
+#register-container {
+    margin-top: 100px;
+}
+
+#login-form {
+    margin-top: 20px;
+}
+
+#login-form input[type=text],
+#login-form input[type=password] {
+    width: 200px;
+    height: 35px;
+    padding: 0 15px;
+    border-radius: 20px;
+    border-style: none;
+    outline: none;
+    background-color: #EEEEEE;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+#register-form input[type=text],
+#register-form input[type=password],
+#register-form input[type=email] {
+    width: 200px;
+    height: 35px;
+    padding: 0 15px;
+    border-radius: 20px;
+    border-style: none;
+    outline: none;
+    background-color: #EEEEEE;
+    font-size: 15px;
+}
+
+#login-container input[type=text]:focus,
+#login-container input[type=password]:focus,
+#register-form input[type=text]:focus,
+#register-form input[type=password]:focus,
+#register-form input[type=email]:focus {
+    background-color: #e1fede;
+}
+
+#login-container input[type=submit] {
+    font-family: 'Lato', sans-serif;
+    background: #c5e7b4;
+    color: #777777;
+    font-size: 20px;
+    padding: 10px 40px 10px 40px;
+    text-decoration: none;
+    border-style: none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+#login-container input[type=submit]:hover {
+    background: #e7dfb4;
+}
+
+#register-text {
+    color: #777777;
+    margin: 10px 0 0 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.login-link {
+    color: #96bf6a;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+}
+
+.login-link:hover {
+    color: #c5e7b4;
+}
+
+#register-form table td {
+    font-family: 'Lato', sans-serif;
+    width: 130px;
+}
+
+#register-form table {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#register-form input[type=submit] {
+    font-family: 'Lato', sans-serif;
+    background: #c5e7b4;
+    color: #777777;
+    font-size: 20px;
+    padding: 10px 40px 10px 40px;
+    text-decoration: none;
+    border-style: none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+#register-form input[type=submit]:hover {
+    background: #e7dfb4;
+}
+
+/******** Audio ********/
+
+#audio-container {
+    position: relative;
+    background-color: rgba(0,0,0,0.8);
+    padding: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+#record-container {
+    margin-bottom: 20px;
+}
+
+#record_button {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+#record_button:hover {
+    box-shadow: 0px 0px 10px yellow;
+}
+
+#mic-logo {
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    z-index: 11;
+}
+
+#analyser {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block; 
+    background: #202020;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+}
+
+.recording {
+    box-shadow: 0px 0px 10px red;
+}
+
+.recording > #analyser {
+    background-color: darkred;
+}
+
+#time {
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    left: 140px;
+    top: 20px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 40px;
+    font-family: 'Roboto Mono', monospace;
+    color: bisque;
+}
+
+#settings_panel {
+    position: absolute;
+    top: 20px;
+    left: 300px;
+    border: solid 2px bisque;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: bisque;
+    padding: 10px;
+    background-color: black;
+}
+
+.checkbox {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    border: solid 2px bisque;
+}
+
+.ci_settings {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-color: bisque;
+    border-style: none;
+}
+
+.audio-file-object {
+    position: relative;
+    background-color: darkkhaki;
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.audio-title {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    background-color: bisque;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+
+.audio-link {
+    text-decoration: none;
+    color: darkred;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+}
+
+.audio-link:hover {
+    color: chocolate;
+}
+
+#submit_rename {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    background: none;
+    border: none;
+    margin-left: 5px;
+}
+
+#audio_rename {
+    border-radius: 10px;
+    border-style: none;
+    padding: 0 5px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    color: #e7dfb4;
+}
+
+.audiojs {
+    background: black;
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    top: 25px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.audiojs .play-pause {
+    
+}
+
+.audiojs .time {
+    position: absolute;
+    right: 10px;
+}
+
+.audiojs .scrubber {
+    position: absolute;
+    top: 0px;
+    left: 40px;
+    bottom: 0px;
+    right: 120px;
+}
+
+.audiojs .loaded {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 35px;
+    width: 0px;
+}
+
+.audiojs .progress {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 45px;
+    width: 0px;
+    background-color: burlywood;
+    z-index: 1;
+}
+
+.rename-button {
+    cursor: pointer;
+}
+
+.audio-title-area {
+    display: inline-block;
+}
+
+.cancel-button {
+    display: inline-block;
+}
+
+.audio-rename-form {
+    display: inline-block;
+}
+
+
+
+#m_container {
+    float: right;
+    display: inline-block;
+    border: solid bisque 2px;
+    padding: 10px;
+    background-color: black;
+}
+
+#m_title {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    color: bisque;
+}
+
+#m_button {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #333333;
+    cursor: pointer;
+    color: bisque;
+    text-align: center;
+}
+
+#m_container table {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    color: bisque;
+    font-size: 12px;
+    text-align: right;
+}
+
+#play_symbol {
+    position: absolute;
+    top: 11px;
+    left: 17px;
+    font-size: 25px;
+}
+
+#pause_symbol {
+    position: absolute;
+    top: 8px;
+    left: 17px;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+#m_button:hover {
+    background-color: bisque;
+    color: black;
+}
+
+.m_settings {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    border-style: none;
+    text-align: center;
+    background-color: bisque;
+}
+
+.m_settings:focus, .ci_settings:focus {
+    background-color: white;
+    outline: none;
+}
+
+#saving {
+    position: relative;
+    z-index: 9999;
+    height: 100px;
+    width: 100px;
+}
+
+#spinner {
+    width: 50px;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    display: inline-block;
+    -webkit-animation:spin 2s linear infinite;
+	-moz-animation:spin 2s linear infinite;
+	animation:spin 2s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { 
+	-moz-transform:rotate(360deg); 
+	}
+}
+@-webkit-keyframes spin { 100% { 
+	-webkit-transform:rotate(360deg); 
+	}
+}
+@keyframes spin { 100% {
+	-webkit-transform:rotate(360deg);
+	transform:rotate(360deg);
+	}
+}

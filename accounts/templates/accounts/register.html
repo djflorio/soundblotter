@@ -1,0 +1,43 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block content %}
+<script src="{% static 'pages/js/login.js' %}"></script>
+
+<div id="login-content">
+    <div id="register-container">
+    <h2>Sign Up for FREE</h2>
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p class="error">{{ error|lower|capfirst|escape }}</p>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    <form action="/accounts/register/" method="post" id="register-form">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td class="t-label">Email:</td>
+                <td>{{form.email}}</td>
+            </tr>
+            <tr>
+                <td class="t-label">Username:</td>
+                <td>{{form.username}}</td>
+            </tr>
+            <tr>
+                <td class="t-label">Password:</td>
+                <td>{{form.password1}}</td>
+            </tr>
+            <tr>
+                <td class="t-label">Repeat password:</td>
+                <td>{{form.password2}}</td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Register">
+    </form>
+        <p id="register-text">Already have an account?<br><a href="/accounts/login/">Login here</a></p>
+    </div>
+</div>
+
+{% endblock %}

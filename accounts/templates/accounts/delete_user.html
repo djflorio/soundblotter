@@ -1,0 +1,22 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block content %}
+<br>
+<p>
+    WARNING: This will permanently delete your account, as
+    well as all of your uploads. If you're absolutely sure
+    you want to do this, enter your username below.
+</p>
+
+{% if error is not None %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+<form action="/accounts/delete_user/" method="post">
+    {% csrf_token %}
+    {{ form.username }}<br>
+<input type="submit" value="DELETE">
+</form>
+<a href="/accounts/user_settings">Back to settings</a>
+
+{% endblock %}

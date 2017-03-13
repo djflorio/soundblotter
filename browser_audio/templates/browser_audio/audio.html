@@ -1,0 +1,80 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block content %}
+
+<script>
+var js_worker = "{% static 'browser_audio/js/recorderjs/recorderWorker.js' %}";
+var m_up = "{% static 'browser_audio/audio/up.wav' %}";
+var m_down = "{% static 'browser_audio/audio/down.wav' %}";
+</script>
+<script src="{% static 'browser_audio/audiojs/audio.min.js' %}"></script>
+<script src="{% static 'browser_audio/js/audiodisplay.js' %}"></script>
+<script src="{% static 'browser_audio/js/recorderjs/recorder.js' %}"></script>
+<script src="{% static 'browser_audio/js/main.js' %}"></script>
+
+<div id="audio-container">
+    <div id="record-container">
+        <div id="record_button">
+            <img id="mic-logo" src="{% static 'browser_audio/images/mic2.png' %}">
+            <div id="saving" style="display:none;">
+                <img id="spinner" src="{% static 'browser_audio/images/saving.png' %}">
+            </div>
+            <canvas id="analyser" width="100px" height="100px"></canvas>
+        </div>
+        <div id="time">
+            <span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+        
+        
+        
+        <div id="m_container">
+            <span id="m_title">Metronome</span>
+            <div id="m_button">
+                <span id="play_symbol">&#9654;</span>
+                <span id="pause_symbol" style="display:none;">||</span>
+            </div>
+            <table>
+                <tr>
+                    <td>BPM:</td>
+                    <td><input class="m_settings" type="text" value="120" id="bpm"></td>
+                </tr>
+                <tr>
+                    <td>Subdivision:</td>
+                    <td><input class="m_settings" type="text" value="4" id="subdivision"></td>
+                </tr>
+            </table>  
+        </div>
+    </div>
+    <table id="settings_panel">
+        <!--<div class="checkbox" id="mr_checkbox"></div>-->
+        <tr>
+            <td><div class="checkbox" id="ci_checkbox"></div></td>
+            <td>
+                Count in for 
+                <input class="ci_settings" type="text" value="1" id="cim_setting">
+                measure(s)
+            </td>
+        </tr>
+        <tr>
+            <td><div class="checkbox" id="as_checkbox"></div></td>
+            <td>
+                Auto stop after 
+                <input class="ci_settings" type="text" value="4" id="as_setting">
+                measure(s)
+            </td>
+        </tr>  
+    </table>
+    {% for f in audio_files %}
+    <div class="audio-file-object">
+        <div class="audio-title">
+            <form class="audio-rename-form" action="/audio/rename_audio/" method="post">{% csrf_token %}
+                <input type="hidden" value="{{ f.id }}" name="audio_id">
+                <span class="audio-title-area" id="{{ f.id }}-title">{{ f.title }} | <a class="rename-button audio-link" data_title_id="{{ f.id }}-title" data_current_title="{{ f.title }}">rename</a></span>
+            </form> | <a class="audio-link" href="#" onclick="deleteAudio('{{ f.file_url }}', {{ f.id }})">delete</a>
+        </div>
+        <audio src="..{{ upload_url }}{{ f.file_url }}" preload="true"></audio>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
